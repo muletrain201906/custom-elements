@@ -1,6 +1,7 @@
 package com.mulesoft.training;
 
 import java.util.*;
+import org.mule.api.annotations.param.*;
 
 public class MuleComponent {
 
@@ -26,5 +27,20 @@ public class MuleComponent {
 		
 		return output;
 	}
+	
+	/*
+	 * This will be invoked in favour of the above (this is annotation)
+	 */
+	  public Map<String,String> processAll(
+			  @Payload Object input
+			  , @InboundHeaders("http.method") String method) 
+	  {
+	      Map<String,String> output = new HashMap<String,String>();
+	      output.put("message", input.toString());
+	      output.put("HTTP method", method);
+	      output.put("processedBy", "processAll");
+	      return output;
+	  }
+	
 
 }
