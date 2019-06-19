@@ -40,7 +40,9 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
   </flow>
 
   <flow name="componentExample">
-        <component class="com.mulesoft.training.MuleComponent" doc:name="Java"/>
+        <component doc:name="Java">
+            <singleton-object class="com.mulesoft.training.MuleComponent"/>
+        </component>
   </flow>
 
 </mule>

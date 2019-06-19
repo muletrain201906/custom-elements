@@ -4,6 +4,12 @@ import java.util.*;
 import org.mule.api.annotations.param.*;
 
 public class MuleComponent {
+	
+	int count;
+	
+	public MuleComponent() {
+		count = 1;
+	}
 
 	public Map<String, String> processMap(Map<String, String> input) {
 		input.put("processedBy", "processMap");
@@ -39,6 +45,10 @@ public class MuleComponent {
 	      output.put("message", input.toString());
 	      output.put("HTTP method", method);
 	      output.put("processedBy", "processAll");
+	      output.put("counter", Integer.toString(count));
+	      
+	      count++;
+	      
 	      return output;
 	  }
 	
