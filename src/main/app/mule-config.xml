@@ -25,6 +25,7 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
       </when>
       <when expression="#[message.inboundProperties.'http.query.params'.type == 'array']">
         <set-payload value="#[['i am an array node']]" doc:name="Set Payload"/>
+                <set-variable variableName="method" value="processArray" doc:name="Set method processArray"/>
         <flow-ref name="componentExample" doc:name="Flow Reference"/>
       </when>
       <when expression="#[message.inboundProperties.'http.query.params'.type == 'string']">
